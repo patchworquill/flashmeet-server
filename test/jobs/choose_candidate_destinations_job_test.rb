@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ChooseCandidatePointsJobTest < ActiveJob::TestCase
+class ChooseCandidateDestinationsJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

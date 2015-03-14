@@ -1,4 +1,4 @@
-class ChooseCandidatePointsJob < ActiveJob::Base
+class ChooseCandidateDestinationsJob < ActiveJob::Base
   queue_as :default
 
   def perform(*args)
