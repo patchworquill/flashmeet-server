@@ -4,9 +4,8 @@ class OrganizeRaceJob < ActiveJob::Base
   def perform(*args)
     base_uri = 'https://nwhacks.firebaseio.com/'
     firebase = Firebase::Client.new(base_uri)
-    # response = firebase.get('users')
     response = firebase.push('kabooms', {:name => 'FreshMeet', :priority => 1})
-    print response
-    #render json: {users: response.body}
+    
+    print 'User ID:' + args[0].to_s
   end
 end
