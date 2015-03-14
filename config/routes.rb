@@ -53,4 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get '/api/start-race', to: 'api#start_race'
+  post '/api/push-location', to: 'api#push_location'
 end
