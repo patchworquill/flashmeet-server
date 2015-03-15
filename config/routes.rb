@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get '/api/start-race', to: 'api#start_race'
+  post '/api/start-race', to: 'api#start_race'
+  get '/api/rsvp', to: 'api#rsvp'
   post '/api/push-location', to: 'api#push_location'
 end
