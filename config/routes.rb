@@ -55,6 +55,5 @@ Rails.application.routes.draw do
   #   end
 
   post '/api/start-race', to: 'api#start_race'
-  get '/api/rsvp', to: 'api#rsvp'
-  post '/api/push-location', to: 'api#push_location'
+  post '/api/rsvp', to: 'api#rsvp'
 end

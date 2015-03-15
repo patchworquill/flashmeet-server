@@ -56,4 +56,19 @@ class Race
         :participants => @participants
     }
   end
+
+
+  # Adds a user to the race's confirmed participants.
+  def rsvp (user, accepted_invitation)
+    case accepted_invitation
+      when false
+        accepted_invitation = 'declined'
+      when true
+        accepted_invitation = 'accepted'
+    end
+
+    firebase = Firebase::Client.new(Rails.configuration.x.firebase_uri)
+    response = firebase.update("races/#{@id}/invitees", { user.id => accepted_invitation })
+    response.success?
+  end
 end

@@ -16,13 +16,14 @@ class ApiController < ActionController::Base
   end
 
   def rsvp
-    user = User.new 'alanisawesome'
-    render json: user.id
-  end
+    user_id = params[:userId]
+    race_id = params[:raceId]
+    accepted_invitation = params[:acceptedInvitation] == '1' ? true : false
 
-  def push_location
-    render json: Destination.all
+    race = Race.new race_id
+    user = User.new user_id
+    race.rsvp user, accepted_invitation
 
-    # render json: {status: 'OK'}
+    render json: {status: 'OK'}
   end
 end
