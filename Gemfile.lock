@@ -57,6 +57,7 @@ GEM
     firebase (0.2.3)
       httpclient
       json
+    geocoder (1.2.7)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     google_directions (0.1.6.2)
@@ -156,6 +157,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   firebase
+  geocoder
   google_directions
   jbuilder (~> 2.0)
   jquery-rails
