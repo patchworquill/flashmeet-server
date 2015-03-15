@@ -1,6 +1,6 @@
 class Race
   include ActiveModel::Serialization
-  attr_accessor :id, :initiator, :destination, :participants
+  attr_accessor :id, :initiator, :destination, :participants, :invitees
 
   include GlobalID::Identification
 
@@ -27,10 +27,9 @@ class Race
     @id = race_id
     @destination = nil
     @participants = []
+    @invitees = []
     load
   end
-
-
 
   def load
     firebase = Firebase::Client.new(Rails.configuration.x.firebase_uri)
@@ -41,19 +40,19 @@ class Race
       @initiator = User.new(response.body['initiator'])
       @destination = response.body['destination'] || nil
       @participants = response.body['participants'] || nil
+      @invitees = response.body['invitees'] || nil
     else
       raise ActiveRecord::RecordNotFound
     end
   end
-
-
 
   def attributes
     {
         :id => @id,
         :initiator => @initiator,
         :destination => @destination,
-        :participants => @participants
+        :participants => @participants,
+        :invitees => @invitees
     }
   end
 

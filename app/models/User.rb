@@ -1,8 +1,7 @@
 class User
   include ActiveModel::Serialization
-  attr_accessor :id, :latitude, :longitude
-
   include GlobalID::Identification
+  attr_accessor :id, :latitude, :longitude
 
   def self.find(id)
     self.new(id)
