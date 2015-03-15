@@ -8,7 +8,7 @@ class ApiController < ActionController::Base
   def start_race
     user_id = params[:userId]
     user = User.new user_id
-    #OrganizeRaceJob.perform_later user
+    OrganizeRaceJob.perform_later user
     render json: {status: 'OK'}
   end
 
