@@ -1,6 +1,6 @@
 # Flash Meet
 
-This is the client-side application for iPhone that my team and I made at nwHacks at UBC in March 2015.
+This is the server-side application that my team and I made at nwHacks at UBC in March 2015.
 
 ## Team
 
