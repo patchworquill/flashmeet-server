@@ -18,6 +18,8 @@ class ApiController < ActionController::Base
   end
 
   def push_location
-    render json: {status: 'OK'}
+    render json: Destination.all
+
+    # render json: {status: 'OK'}
   end
 end

@@ -3,8 +3,7 @@ class OrganizeRaceJob < ActiveJob::Base
 
   def perform(*args)
     user = args[0]
-
-    print 'User ID:' + userId.to_s
-    ChooseCandidateDestinationsJob.perform_later user
+    destinations = Destination.all
+    ChooseCandidateDestinationsJob.perform_later user, destinations
   end
 end
