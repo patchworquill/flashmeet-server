@@ -4,8 +4,8 @@ class OrganizeRaceJob < ActiveJob::Base
   def perform(*args)
     race = args[0]
 
-    SendInvites.perform_later race
+    SendInvitesJob.perform_later race
 
-    StartRace.set(wait: 30.seconds).perform_later race
+    StartRaceJob.set(wait: 30.seconds).perform_later race
   end
 end
