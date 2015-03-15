@@ -61,4 +61,8 @@ class Destination
         :longitude => @longitude
     }
   end
+
+  def lat_lon_string
+    @latitude.to_s+','+@longitude.to_s
+  end
 end
