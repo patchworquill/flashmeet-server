@@ -2,10 +2,9 @@ class OrganizeRaceJob < ActiveJob::Base
   queue_as :default
 
   def perform(*args)
-    base_uri = 'https://nwhacks.firebaseio.com/'
-    firebase = Firebase::Client.new(base_uri)
-    response = firebase.push('kabooms', {:name => 'FreshMeet', :priority => 1})
+    user_id = args[0]
 
-    print 'User ID:' + args[0].to_s
+    print 'User ID:' + userId.to_s
+    ChooseCandidateDestinationsJob.perform_later user_id
   end
 end

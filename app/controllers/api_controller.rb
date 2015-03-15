@@ -6,8 +6,8 @@ class ApiController < ActionController::Base
   # Acknowledge that the race request was received.
   # The receipt of a race request does NOT guarantee a race.
   def start_race
-    userId = 123
-    OrganizeRaceJob.perform_later userId
+    user_id = 123
+    OrganizeRaceJob.perform_later user_id
     render json: {status: 'OK'}
   end
 
