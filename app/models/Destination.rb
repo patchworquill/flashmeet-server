@@ -2,6 +2,16 @@ class Destination
   include ActiveModel::Serialization
   attr_accessor :id, :address, :description, :name, :latitude, :longitude
 
+  include GlobalID::Identification
+
+  def self.find(id)
+    self.new(id)
+  end
+
+  def id
+    @id
+  end
+
   def initialize(destination_id, fields = nil)
     @id = destination_id
 

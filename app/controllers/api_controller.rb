@@ -7,9 +7,12 @@ class ApiController < ActionController::Base
   # The receipt of a race request does NOT guarantee a race.
   def start_race
     user_id = params[:userId]
+
     user = User.new user_id
+    race = Race.new nil, user_id
+
     OrganizeRaceJob.perform_later user
-    render json: {status: 'OK'}
+    render json: {status: 'OK', raceId: race.id}
   end
 
   def rsvp
