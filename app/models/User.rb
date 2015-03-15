@@ -9,9 +9,8 @@ class User
 
   def update
     firebase = Firebase::Client.new(Rails.configuration.x.firebase_uri)
-    response = firebase.get("users/#{@user_id}")
-    print response.body
-    if response.success?
+    response = firebase.get("users/#{@id}/")
+    if defined? response.body['userId']
       @latitude = response.body['lat']
       @longitude = response.body['long']
     else
