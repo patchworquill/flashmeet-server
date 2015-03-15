@@ -11,7 +11,7 @@ class ApiController < ActionController::Base
     user = User.new user_id
     race = Race.new nil, user_id
 
-    OrganizeRaceJob.perform_later user
+    OrganizeRaceJob.perform_later race
     render json: {status: 'OK', raceId: race.id}
   end
 
